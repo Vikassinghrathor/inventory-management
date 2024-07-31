@@ -1,8 +1,11 @@
 "use Client"
+import { useAppDispatch, useAppSelector } from '@/app/redux'
 import { Menu } from 'lucide-react'
 import React from 'react'
 
 const Sidebar = () => {
+  const dispatch = useAppDispatch();
+  const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
   return (
     <div>
       {/* Top Logo */}
@@ -15,7 +18,14 @@ const Sidebar = () => {
       </div>
 
       {/* LINKS */}
-      
+      <div className='flex-grow mt-8'>
+        {/* LINKS */}
+      </div>
+
+      {/* FOOTER */}
+      <div className={`${isSidebarCollapsed ? "hidden" : "block"} mb-10`}>
+        <p className="text-center text-xs text-gray-500">&copy; 2024 Edstock</p>
+      </div>
     </div>
   )
 }
